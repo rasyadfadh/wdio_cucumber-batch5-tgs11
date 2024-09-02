@@ -1,0 +1,12 @@
+{
+  "name": "wdio_cucumber-batch5-tgs11",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/cli": "^9.0.7",
+    "@wdio/cucumber-framework": "^9.0.6",
+    "@wdio/json-reporter": "^9.0.4",
+    "@wdio/local-runner": "^9.0.7",
+    "@wdio/spec-reporter": "^9.0.7",
+    "wdio-cucumberjs-json-reporter": "^5.2.1"
+  }
+}
