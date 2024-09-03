@@ -16,15 +16,15 @@ class InformationPage extends Page {
         return $("#postal-code")
     }
 
+    get cancelButton(){
+        return $('//*[@id="cancel"]')
+    }
+
     get continueButton() {
         return $('//*[@id="continue"]')
     }
-    get errorMessageFirstName(){
-        return $('//*[@id="checkout_info_container"]/div/form/div[1]/div[4]/h3')
-    }
-
-    get  errorMessageLastName (){
-        return $('//*[@id="checkout_info_container"]/div/form/div[1]/div[4]/h3')
+    get errorMessage(){
+        return $('//*[@id="checkout_info_container"]/div/form/div[1]/div[4]')
     }
 
     async inputFirstname(firstname){
@@ -39,21 +39,28 @@ class InformationPage extends Page {
         await this.firstNameTextBox.setValue(postalcode)
     }
 
-    async clickLoginButton(){
-        await this.loginButton.click()
+    async clickContinue(){
+        await this.continueButton.click()
     }
 
-    async login(username, password){
-       await this.inputUsername(username)
-       await this.inputPassword(password)
-       await this.clickLoginButton()
+    async cancel(){
+        await this.cancelButton.click()
     }
 
-    async validateEmptyFirstName(errorMessage){
+    async information(firstname, lastname, postalcode){
+       await this.inputFirstname(firstname)
+       await this.inputLastname(lastname)
+       await this.inputPostalCode(postalcode)
+       await this.clickContinue()
+    }
+
+    async validateEmptyText(errorMessage){
         await expect(this.errorMessage).toHaveText(
             expect.stringContaining(errorMessage)
         )
     }
+
+
     open(){
         return super.open("")
     }

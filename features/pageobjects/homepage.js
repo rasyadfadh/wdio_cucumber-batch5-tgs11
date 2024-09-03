@@ -28,7 +28,7 @@ class HomePage extends Page{
         await expect(this.cartIcon).toBeExisting();
         await expect(this.addToCartButton).toBeExisting();
         await expect(this.productImage).toBeExisting();
-        
+    
     }
     async addFirstItemToCart() {
         await this.addToCartButton.click();

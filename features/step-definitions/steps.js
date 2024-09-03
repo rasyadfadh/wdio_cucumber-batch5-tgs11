@@ -4,6 +4,7 @@ import { expect, $ } from '@wdio/globals'
 import LoginPage from '../pageobjects/login.page.js';
 import HomePage from '../pageobjects/homepage.js';
 import CartPage from '../pageobjects/cartpage.js'
+import information from '../pageobjects/information.js';
 
 //Login steps
 Given('user is on Login Page', async () => {
@@ -83,6 +84,45 @@ Then('user add one more item into the cart', async () => {
 Then('user checkout', async () => {
     await CartPage.checkout()
 })
+
+//information
+Then('user input {string} as First Name and {string} as Last Name and {string} as Postal Code', async(firstname,lastname,postalcode) => {
+    await information.inputFirstname(firstname)
+    await information.inputLastname(lastname)
+    await information.inputPostalCode(postalcode)
+})
+
+Then ('user should be redirected to Overview Page', async() =>{
+    await information.clickContinue()
+})
+
+Then('user decide to cancel input information', async () => {
+    await information.cancel()
+})
+
+Then('user should be redirect to homepage', async () => {
+    await HomePage.validateHomePage()
+})
+
+Then('user click continue', async () => {
+    await information.clickContinue()  
+})
+
+Then('user should see error msg {string}', async (errormsg) => {
+    await information.validateEmptyText(errormsg)
+})
+
+Then('user input {string} as First Name', async (firstname) => {
+    await information.inputFirstname(firstname)
+  })
+
+Then('user input {string} as First Name and {string} as Last Name', async (firstname, lastname) => {
+    await information.inputFirstname(firstname)
+    await information.inputLastname(lastname)
+})
+
+
+
 
 
 

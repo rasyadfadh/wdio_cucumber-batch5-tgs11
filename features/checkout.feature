@@ -2,7 +2,7 @@
 Feature:Checkout
 
 Background:
-Given user is in Home Page
+Given user is on Login Page
 
 @tc-6
 Scenario: Go to Checkout

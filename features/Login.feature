@@ -8,8 +8,6 @@ Given user is on Login Page
   Scenario Outline: Success Buying
     When user login input "<username>" as username and "<password>" as password
     Then user should be redirected to homepage
-    When user add item to cart
-    Then user should be redirected to cartpage
 
     Examples:
     | username      | password     |

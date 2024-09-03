@@ -2,8 +2,7 @@
 Feature: Add to Cart Test
 
 Background:
-Given user is in Home Page
-
+Given user is on Login Page
 @tc-3
 Scenario Outline: Success Add to Cart
     When user login input "standard_user" as username and "secret_sauce" as password
