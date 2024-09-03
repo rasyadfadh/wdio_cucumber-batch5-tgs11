@@ -36,7 +36,7 @@ class InformationPage extends Page {
     }
 
     async inputPostalCode(postalcode){
-        await this.firstNameTextBox.setValue(postalcode)
+        await this.postalCodeTextBox.setValue(postalcode)
     }
 
     async clickContinue(){

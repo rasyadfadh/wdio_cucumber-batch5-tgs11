@@ -5,6 +5,7 @@ import LoginPage from '../pageobjects/login.page.js';
 import HomePage from '../pageobjects/homepage.js';
 import CartPage from '../pageobjects/cartpage.js'
 import information from '../pageobjects/information.js';
+import overview from '../pageobjects/overview.js';
 
 //Login steps
 Given('user is on Login Page', async () => {
@@ -90,10 +91,11 @@ Then('user input {string} as First Name and {string} as Last Name and {string} a
     await information.inputFirstname(firstname)
     await information.inputLastname(lastname)
     await information.inputPostalCode(postalcode)
+    await information.clickContinue()
 })
 
 Then ('user should be redirected to Overview Page', async() =>{
-    await information.clickContinue()
+
 })
 
 Then('user decide to cancel input information', async () => {
@@ -121,6 +123,22 @@ Then('user input {string} as First Name and {string} as Last Name', async (first
     await information.inputLastname(lastname)
 })
 
+//overview
+When('user in overview page click Finish', async () => {
+    await overview.finish()
+})
+  
+Then('user should be redirected to complete page', () => {
+  
+})
+
+When('user in overview page click Cancel', async () => {
+    await overview.cancel()
+})
+
+Then('user should be redirected to Home page', async () => {
+    await HomePage.validateHomePageRemove()
+})
 
 
 
