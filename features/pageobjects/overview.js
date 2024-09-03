@@ -12,7 +12,7 @@ class OverviewPage extends Page {
     }
 
     open(){
-        return super.open("cart.html")
+        return super.open("checkout-step-two.html")
     }
 
     

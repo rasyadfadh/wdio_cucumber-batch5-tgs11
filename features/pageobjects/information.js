@@ -62,7 +62,7 @@ class InformationPage extends Page {
 
 
     open(){
-        return super.open("")
+        return super.open("checkout-step-one.html")
     }
 
 }

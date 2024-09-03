@@ -24,5 +24,6 @@ Scenario: Continue Shopping and Add more item
     Then user add one more item into the cart
     Then user go to cart and should be in cart page
     Then user checkout
+    Then user should be redirect to your information page
     
 

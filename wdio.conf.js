@@ -1,3 +1,5 @@
+import { browser } from '@wdio/globals'
+
 export const config = {
     //
     // ====================
@@ -224,16 +226,18 @@ export const config = {
      * @param {string}                   uri      path to feature file
      * @param {GherkinDocument.IFeature} feature  Cucumber feature object
      */
-    // beforeFeature: function (uri, feature) {
-    // },
+    beforeFeature: function (uri, feature) {
+        console.log("Ini dieksekusi sebelum Feture dijalan")
+    },
     /**
      *
      * Runs before a Cucumber Scenario.
      * @param {ITestCaseHookParameter} world    world object containing information on pickle and test step
      * @param {object}                 context  Cucumber World object
      */
-    // beforeScenario: function (world, context) {
-    // },
+    beforeScenario: function (world, context) {
+        console.log("Ini dieksekusi sebelum scenario")
+    },
     /**
      *
      * Runs before a Cucumber Step.
@@ -266,8 +270,13 @@ export const config = {
      * @param {number}                 result.duration  duration of scenario in milliseconds
      * @param {object}                 context          Cucumber World object
      */
-    // afterScenario: function (world, result, context) {
-    // },
+    afterScenario: async function (world, result, context) {
+        console.log("ini dieksekusi after scenario")
+        
+        if(result.error){
+            await browser.saveScreenshot('screenshot/failed-test.png')
+        }
+    },
     /**
      *
      * Runs after a Cucumber Feature.

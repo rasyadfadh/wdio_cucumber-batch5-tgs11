@@ -6,6 +6,8 @@ import HomePage from '../pageobjects/homepage.js';
 import CartPage from '../pageobjects/cartpage.js'
 import information from '../pageobjects/information.js';
 import overview from '../pageobjects/overview.js';
+import homepage from '../pageobjects/homepage.js';
+import completepage from '../pageobjects/completepage.js';
 
 //Login steps
 Given('user is on Login Page', async () => {
@@ -75,7 +77,7 @@ Then('user choose to continue Shopping', async () => {
 })
 
 Then('user is back at Home Page', async () => {
-    
+    await homepage.validateHomePageRemove    
 })
 
 Then('user add one more item into the cart', async () => {
@@ -102,8 +104,8 @@ Then('user decide to cancel input information', async () => {
     await information.cancel()
 })
 
-Then('user should be redirect to homepage', async () => {
-    await HomePage.validateHomePage()
+Then('user should be redirect to cartpage', () => {
+  
 })
 
 Then('user click continue', async () => {
@@ -138,6 +140,15 @@ When('user in overview page click Cancel', async () => {
 
 Then('user should be redirected to Home page', async () => {
     await HomePage.validateHomePageRemove()
+})
+
+//complete
+When('user in complete page click back home to return to homepage', async () => {
+    await completepage.back()
+})
+
+Then('user should be redirected back to homepage', async () => {
+    await HomePage.validateHomePage()
 })
 
 

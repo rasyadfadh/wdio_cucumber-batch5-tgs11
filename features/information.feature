@@ -28,7 +28,7 @@ When user login input "standard_user" as username and "secret_sauce" as password
     And user choose the checkout button
     Then user should be redirect to your information page
     Then user decide to cancel input information
-    Then user should be redirect to homepage
+    Then user should be redirect to cartpage
 
 @tc-10
 Scenario: Not input First Name
