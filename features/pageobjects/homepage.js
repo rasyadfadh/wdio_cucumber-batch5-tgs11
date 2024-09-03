@@ -10,9 +10,18 @@ class HomePage extends Page{
     get addToCartButton(){
         return $("#add-to-cart-sauce-labs-backpack")
     }
+
+    get addToCartButton2(){
+        return $('//*[@id="add-to-cart-sauce-labs-bike-light"]')
+    }
+
     get productImage() {
         return $("#item_0_img_link")
     
+    }
+
+    get removeitem(){
+        return $("#remove-sauce-labs-backpack")
     }
 
     async validateHomePage(){
@@ -25,8 +34,16 @@ class HomePage extends Page{
         await this.addToCartButton.click();
     }
 
+    async addSecondItemtoCart(){
+        await this.addToCartButton2.click();
+    }
+
     async goToCart() {
         await this.cartIcon.click();
+    }
+
+    async removeitemfromcart(){
+        await this.removeitem.click();
     }
     
     open(){

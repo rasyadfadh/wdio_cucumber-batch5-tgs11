@@ -3,8 +3,13 @@ import { $, expect } from '@wdio/globals'
 
 class CartPage extends Page {
 
-    get checkoutButton() {}
-    get continueShoppingButton() {}
+    get checkoutButton() {
+        return $('//*[@id="checkout"]')
+    }
+
+    get continueShoppingButton() {
+        return $('//*[@id="continue-shopping"]')
+    }
     
     get cartItemList() { return $('.cart_list'); }
 
@@ -14,6 +19,14 @@ class CartPage extends Page {
     }
 
     
+    async checkout(){
+        await this.checkoutButton.click()
+    }
+
+    async continue(){
+        await this.continueShoppingButton.click()
+    }
+
     async getCartItem(itemName) {
         
         await browser.pause(3000)

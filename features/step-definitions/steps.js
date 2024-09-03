@@ -3,7 +3,9 @@ import { expect, $ } from '@wdio/globals'
 
 import LoginPage from '../pageobjects/login.page.js';
 import HomePage from '../pageobjects/homepage.js';
+import CartPage from '../pageobjects/cartpage.js'
 
+//Login steps
 Given('user is on Login Page', async () => {
     await LoginPage.open()
 })  
@@ -39,11 +41,48 @@ Then('user should see error message {string}', async (errorMessage) => {
     await LoginPage.validateWrongPassword(errorMessage)
 })
 
+//Home Page step
+Given('user is in Home Page', async () => {
+    await HomePage.open()
+  })
 
-When('user add item to cart', async () => {
+
+When('user in homepage add item into the Cart', async () => {
     await HomePage.addFirstItemToCart()
-  })
+})
 
-Then('user should be redirected to cartpage', async () => {
+Then('user go to cart and should be in cart page', async () => {
     await HomePage.goToCart()
-  })
+})
+
+Then('user remove the item that was added in the cart', async() => {
+    await HomePage.removeitemfromcart()
+})
+
+//checkout step
+Then('user choose the checkout button', async () => {
+    await CartPage.checkout()
+})
+
+Then('user should be redirect to your information page', async () => {
+    
+})
+
+Then('user choose to continue Shopping', async () => {
+    await CartPage.continue()
+})
+
+Then('user is back at Home Page', async () => {
+    
+})
+
+Then('user add one more item into the cart', async () => {
+    await HomePage.addSecondItemtoCart()
+})
+
+Then('user checkout', async () => {
+    await CartPage.checkout()
+})
+
+
+
